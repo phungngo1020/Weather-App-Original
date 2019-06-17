@@ -17,7 +17,7 @@ function searchWeather() {
     http.open(method, url);
     http.onreadystatechange = function() {
         if (http.readyState == XMLHttpRequest.DONE && http.status === 200) {
-            var data = JSON.parse(http.responseText);
+            var data = JSON.parse(http.responseText); //Parse data with JSON parse into a JS object
             var weatherData = new Weather(cityName, data.weather[0].description.toUpperCase());
             weatherData.temperature = data.main.temp;
             updateWeather(weatherData);
